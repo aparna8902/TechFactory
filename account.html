@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>All Products - Tech Factory</title>
+	<link rel="stylesheet"  href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.header{
+			background: #fff;
+			margin-bottom: 0px;
+		}
+		.btn{
+	        display: inline-block;
+	        background: #0066ff;
+	        color: #fff;
+	        padding: 8px 30px;
+	        margin: 30px 0;
+	        border-radius: 30px;
+	        transition: 0.5s;
+        }
+      nav li #acc{
+      	text-shadow: 2px 2px 4px #0066ff;
+      }
+	</style>
+</head>
+<body>
+	<div class="header">
+	<div class="container">
+		<div class="navbar">
+		<div class="logo">
+			<a href="index.html"><img src="images1/logo.png" alt="logo" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="account.html" id="acc">Account</a></li>
+			</ul>
+		</nav>
+	<a href="cart.html" id="bag"><img src="images1/cart.png" width="30px" height="30px"></a>
+	    </div>
+	</div>
+    </div>
+
+<!-------------Account Page--------------------->
+<div class="account-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-2">
+				<img src="images1/try.png" width="100%">
+			</div>
+			<div class="col-2">
+				<div class="form-container">
+					<div class="form-btn">
+						<span onclick="login()">Login</span>
+						<span onclick="register()">Register</span>
+						<hr id="Indicator">
+					</div>
+
+					<form id="LoginForm">
+						<input type="text" name="uname" placeholder="Username" id="uname1" required>
+						<input type="password" name="psw" placeholder="Password" required>
+						<button type="submit" class="btn" onclick="formvalidate();">Login</button>
+						<a href="">Forgot password</a>
+					</form>
+
+					<form id="RegForm">
+						<input type="text" name="uname" placeholder="Username" id="uname2" required>
+						<input type="email" name="email" placeholder="Email" id="email" required>
+						<input type="password" name="psw" placeholder="Password" id="password" required>
+						<button type="submit" class="btn" onclick="formvalidate();">Register</button>
+						<a href="">Forgot password</a>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+ 
+
+<!-----------Footer---------------->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Download Our App</h3>
+				<p>Download App for Android and IOS mobile phone.</p>
+				<div class="app-logo">
+					<img src="images/play-store.png">
+					<img src="images/app-store.png">
+				</div>
+			</div>
+			<div class="footer-col-2">
+				<img src="images1/logo.png">
+				<p>Our Purpose Is To Sustainably Make the Benefits of Technology and Gadgets Accessible to Many.</p>
+			</div>
+			<div class="footer-col-3">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Coupons</li>
+					<li>Terms and Privacy Policy</li>
+					<li>Return Policy</li>
+					<li>Join Affiliate</li>
+				</ul>
+			</div>
+			<div class="footer-col-4">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>Instagram</li>
+					<li>YouTube</li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2021 - Tech Factory</p>
+	</div>
+</div>	
+<!-----------JavaScript----------------->
+<script type="text/javascript">
+	var LoginForm = document.getElementById("LoginForm");
+	var RegForm = document.getElementById("RegForm");
+	var Indicator = document.getElementById("Indicator");
+
+	function register(){
+		RegForm.style.transform = "translateX(0px)";
+		LoginForm.style.transform = "translateX(0px)";
+		Indicator.style.transform = "translateX(100px)";
+	}
+
+	function login(){
+		RegForm.style.transform = "translateX(300px)";
+		LoginForm.style.transform = "translateX(300px)";
+		Indicator.style.transform = "translateX(0px)";
+	}
+
+
+	//------------------Form Validation----------------//
+	function formvalidate(){
+
+		//UserName validation
+		var regName = /^[a-zA-Z0-9]+$/;
+		var name=document.getElementById("uname2").value;
+		if(!regName.test(name) && name!=""){
+        alert('Please enter valid Username.');
+        document.getElementById("uname2").focus();
+        return false;
+        }
+      var name1=document.getElementById("uname1").value;
+		if(!regName.test(name1) && name1!=""){
+        alert('Please enter valid Username.');
+        document.getElementById('uname1').focus();
+        return false;
+        }
+
+      //Email Validation
+      var x=document.getElementById("email").value;  
+        var atposition=x.indexOf("@");  
+        var dotposition=x.lastIndexOf(".");  
+        if ((atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length) && x!=""){  
+            alert("Please enter a valid e-mail address.");  
+            document.getElementById("email").focus();
+            //alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);
+            return false;  
+        }
+
+      //Password Validation
+        var pw=document.getElementById("password").value;
+        if(pw.length < 8 && pw!="" ) { 
+        alert('Password length must be atleast 8 characters.');
+        document.getElementById("password").focus();  
+        return false;  
+        }  
+	}
+
+
+</script>
+
+</body>
+</html>
